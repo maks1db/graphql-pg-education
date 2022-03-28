@@ -21,10 +21,9 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "start:db": "docker container start home-pg",
-    "migration:generate": "node --loader ts-node/esm ./node_modules/typeorm/cli.js migration:generate",
-    "migration:create": "ts-node ./node_modules/typeorm/cli.js migration:create -n",
-    "migration:run": "node --loader ts-node/esm ./node_modules/typeorm/cli.js migration:run",
-    "migration:revert": "node --loader ts-node/esm ./node_modules/typeorm/cli.js migration:revert"
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/ormconfig.ts",
+    "typeorm:migrate": "yarn typeorm migration:generate -n",
+    "typeorm:run": "npm run typeorm migration:run"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
@@ -34,9 +33,10 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "@nestjs/typeorm": "~8.0.3",
-    "typeorm": "~0.3.4",
+    "typeorm": "~0.2",
     "pg": "~8.7.3",
-    "@nestjs/config": "~2.0.0"
+    "@nestjs/config": "~2.0.0",
+    "dotenv": "~16.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
