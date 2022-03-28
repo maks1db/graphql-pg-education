@@ -18,6 +18,13 @@ type Employee {
   positionId: Float!
 }
 
+type Art {
+  id: Int!
+
+  """Наименование арта"""
+  name: String!
+}
+
 type Query {
   """Получение всех должностей организации"""
   getAllPositions: [Position!]!
@@ -26,12 +33,21 @@ type Query {
   getPosition(id: Float!): Position!
   getAllEmployees: [Employee!]!
   getEmployee(id: Float!): Employee!
+
+  """Получение всех артов организации"""
+  getAllArts: [Art!]!
+
+  """Получение арта по id"""
+  getArt(id: Float!): Art!
 }
 
 type Mutation {
   """Создание новой должности"""
   createPosition(position: PositionCreateDTO!): Position!
   createEmployee(employee: EmployeeCreateDTO!): Employee!
+
+  """Создание нового арта"""
+  createArt(art: ArtCreateDTO!): Art!
 }
 
 input PositionCreateDTO {
@@ -41,4 +57,8 @@ input PositionCreateDTO {
 input EmployeeCreateDTO {
   name: String!
   positionId: Float!
+}
+
+input ArtCreateDTO {
+  name: String!
 }
