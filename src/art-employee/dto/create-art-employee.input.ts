@@ -1,9 +1,9 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
 
 @InputType()
-export class ArtCreateDTO {
-  @Field()
-  name: string;
+export class ArtEmployeeCreateDTO {
+  @Field(() => Int)
+  artId: number;
 
   @Field(() => [Int])
   employeeIds: number[];

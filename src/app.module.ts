@@ -7,11 +7,13 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { ArtModule } from './art/art.module';
+import { ArtEmployeeModule } from './art-employee/art-employee.module';
 @Module({
   imports: [
     PositionModule,
     EmployeeModule,
     ArtModule,
+    ArtEmployeeModule,
     TypeOrmModule.forRoot(ormConfig),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
