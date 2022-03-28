@@ -5,8 +5,17 @@
 type Position {
   id: Int!
 
+  """Наименование должности"""
+  name: String!
+}
+
+type Employee {
+  id: Int!
+
   """ФИО сотрудника"""
   name: String!
+  position: Position!
+  positionId: Float!
 }
 
 type Query {
@@ -15,13 +24,21 @@ type Query {
 
   """Получение должности по id"""
   getPosition(id: Float!): Position!
+  getAllEmployees: [Employee!]!
+  getEmployee(id: Float!): Employee!
 }
 
 type Mutation {
   """Создание новой должности"""
   createPosition(position: PositionCreateDTO!): Position!
+  createEmployee(employee: EmployeeCreateDTO!): Employee!
 }
 
 input PositionCreateDTO {
   name: String!
+}
+
+input EmployeeCreateDTO {
+  name: String!
+  positionId: Float!
 }

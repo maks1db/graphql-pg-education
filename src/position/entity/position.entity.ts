@@ -8,7 +8,7 @@ export class Position {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Field({ description: 'ФИО сотрудника' })
+  @Field({ description: 'Наименование должности' })
   @Column()
   name: string;
 }

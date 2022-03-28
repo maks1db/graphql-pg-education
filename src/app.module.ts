@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PositionModule } from './position/position.module';
+import { EmployeeModule } from './employee/employee.module';
 import * as ormConfig from './ormconfig';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -9,6 +10,7 @@ import { join } from 'path';
 @Module({
   imports: [
     PositionModule,
+    EmployeeModule,
     TypeOrmModule.forRoot(ormConfig),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
