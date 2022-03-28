@@ -1,0 +1,27 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Position {
+  id: Int!
+
+  """ФИО сотрудника"""
+  name: String!
+}
+
+type Query {
+  """Получение всех должностей организации"""
+  getAllPositions: [Position!]!
+
+  """Получение должности по id"""
+  getPosition(id: Float!): Position!
+}
+
+type Mutation {
+  """Создание новой должности"""
+  createPosition(position: PositionCreateDTO!): Position!
+}
+
+input PositionCreateDTO {
+  name: String!
+}
